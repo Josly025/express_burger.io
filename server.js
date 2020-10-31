@@ -1,7 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 //port we are listening on - able to use with Heroku
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 let app = express();
 
