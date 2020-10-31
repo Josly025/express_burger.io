@@ -1,29 +1,29 @@
-//Setup as a template for Handlebars to render to
+<!--Setup as a template for Handlebars to render to-->
 
 
 <h1>Burgers!</h1>
-
+<img alt="burger image" src=".../public/assets/img/Burger-Image.png">
 <h2>Burgers that are not Devoured!</h2>
 
 <ul>
-  {{#each burger_name}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
+  {{#each burgers}}
+      {{#unless devoured}}
+          <p class="notDevoured">{{xthis.burger_name}}</p>
+      {{/unless}}
+    {{/each}}
 </ul>
 
 <h2>Burgers that are Devoured!</h2>
 
 <ul>
-  {{#each burger_name}}
-    {{#if devoured}}
-      {{> burger_name/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
+    {{#each burgers}}
+      {{#if devoured}}
+          <p class="devoured">{{this.burger_name}} </p>
+      {{/if}}
+    {{/each}}
 </ul>
 
-<h2>Add a Burger</h2>
+<h2>Add a Burger:</h2>
 <form class="create-form">
 
   <div class="form-group">
@@ -33,8 +33,8 @@
 
   <div class="form-group">
     <label for="sleepy">Devoured?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Not Devoured!<br>
-    <input type="radio" name="sleepy" value="0"> Devoured
+    <input type="radio" name="devoured" value="1" checked> Not Devoured!<br>
+    <input type="radio" name="devoured" value="0"> Devoured
   </div>
 
   <button type="submit">Add Burger</button>
